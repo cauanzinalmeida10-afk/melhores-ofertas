@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melhores Ofertas</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: linear-gradient(140deg, #ff5a00, #ff8500, #e94b00);
+    min-height: 100vh;
+}
+
+header {
+    padding: 18px;
+    background: #e94b00;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    box-shadow: 0 3px 12px #8c280066;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.instagram {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background: #ff8a00;
+    padding: 10px 14px;
+    border-radius: 20px;
+    overflow-wrap: anywhere;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 15px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.subtitulo {
+    text-align: center;
+    line-height: 1.6;
+    font-size: 15px;
+    margin: 15px auto 25px;
+    max-width: 750px;
+}
+
+#busca {
+    width: 100%;
+    padding: 14px;
+    border: 0;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    font-size: 16px;
+    outline: none;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.produto {
+    background: #ff7100;
+    border: 2px solid #ffb04d;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px #8c280055;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto a.imagem-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 190px;
+    background: #f45b00;
+}
+
+.produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+    padding: 8px;
+    margin: auto;
+}
+
+.produto-info {
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tag {
+    display: inline-block;
+    background: #a83200;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-bottom: 8px;
+}
+
+.produto h3 {
+    margin: 0 0 13px;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.botao {
+    display: block;
+    text-align: center;
+    margin-top: auto;
+    background: #a83200;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.botao:hover {
+    background: #812700;
+}
+
+#admin {
+    display: none;
+    background: #e94b00;
+    border: 2px solid #ffb04d;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+#admin h2 {
+    margin-top: 0;
+}
+
+.campo {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0 13px;
+    border: 0;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+.botao-admin {
+    background: #a83200;
+    color: white;
+    border: 0;
+    padding: 12px 17px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px 3px 5px 0;
+}
+
+.botao-admin:hover {
+    background: #812700;
+}
+
+.item-admin {
+    background: #ff8500;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.item-admin span {
+    overflow-wrap: anywhere;
+}
+
+.separador {
+    border: 0;
+    border-top: 2px solid #ffb04d;
+    margin: 25px 0;
+}
+
+@media(max-width: 500px) {
+    header {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .produto a.imagem-link {
+        height: 145px;
+    }
+
+    .produto h3 {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo" id="logo">MELHORES OFERTAS</div>
+
+    <a class="instagram" id="instagramTopo"
+       href="https://www.instagram.com/melhores_achados.da.internet/"
+       target="_blank" rel="noopener noreferrer">
+       insta: melhores_achados.da.internet
+    </a>
+</header>
+
+<main>
+
+    <h1 id="tituloPrincipal">Economize mais comprando melhor. Descubra nossas ofertas!</h1>
+
+    <p class="subtitulo">
+        🛍️ Todos os produtos são vendidos pela Shopee! Ao clicar na oferta desejada,
+        você será direcionado diretamente para a plataforma Shopee para conferir
+        detalhes e realizar sua compra com segurança. ❤️
+    </p>
+
+    <input type="search" id="busca"
+           placeholder="Pesquisar produtos...">
+
+    <div class="produtos" id="listaProdutos"></div>
+
+    <section id="admin">
+
+        <h2>Área do dono</h2>
+
+        <h3>Editar Instagram do topo</h3>
+
+        <label>Nome que aparecerá no topo:</label>
+        <input class="campo" id="nomeInstagram"
+               placeholder="Ex: insta: meu perfil">
+
+        <label>Link para onde a pessoa será direcionada:</label>
+        <input class="campo" id="linkInstagram"
+               placeholder="Cole qualquer link aqui">
+
+        <button class="botao-admin" onclick="salvarInstagram()">
+            SALVAR ALTERAÇÕES DO TOPO
+        </button>
+
+        <hr class="separador">
+
+        <h3>Adicionar um produto</h3>
+
+        <label>Imagem do produto:</label>
+        <input class="campo" type="file" id="imagemProduto"
+               accept="image/*">
+
+        <label>Nome do produto:</label>
+        <input class="campo" id="nomeProduto"
+               placeholder="Digite o nome do produto">
+
+        <label>Link do produto:</label>
+        <input class="campo" id="linkProduto"
+               placeholder="Cole o link da Shopee">
+
+        <button class="botao-admin" onclick="adicionarProduto()">
+            ADICIONAR PRODUTO
+        </button>
+
+        <hr class="separador">
+
+        <h3>TODOS OS PRODUTOS</h3>
+        <div id="listaAdmin"></div>
+
+        <button class="botao-admin" onclick="fecharAdmin()">
+            FECHAR ÁREA DO DONO
+        </button>
+
+    </section>
+
+</main>
+
+<script>
+const CHAVE_PRODUTOS = "melhores_ofertas_produtos";
+const CHAVE_NOME_INSTA = "melhores_ofertas_nome_insta";
+const CHAVE_LINK_INSTA = "melhores_ofertas_link_insta";
+
+let produtos = JSON.parse(
+    localStorage.getItem(CHAVE_PRODUTOS) || "[]"
+);
+
+let nomeInstagram = localStorage.getItem(CHAVE_NOME_INSTA)
+    || "insta: melhores_achados.da.internet";
+
+let linkInstagram = localStorage.getItem(CHAVE_LINK_INSTA)
+    || "https://www.instagram.com/melhores_achados.da.internet/";
+
+function salvarProdutos() {
+    localStorage.setItem(CHAVE_PRODUTOS, JSON.stringify(produtos));
+}
+
+function prepararLink(link) {
+    link = (link || "").trim();
+
+    if (!link) return "#";
+
+    if (/^(https?:\/\/|mailto:|tel:|#)/i.test(link)) {
+        return link;
+    }
+
+    return "https://" + link;
+}
+
+function atualizarInstagram() {
+    const instagram = document.getElementById("instagramTopo");
+
+    instagram.textContent = nomeInstagram;
+    instagram.href = prepararLink(linkInstagram);
+
+    document.getElementById("nomeInstagram").value = nomeInstagram;
+    document.getElementById("linkInstagram").value = linkInstagram;
+}
+
+function salvarInstagram() {
+    const novoNome = document.getElementById("nomeInstagram").value.trim();
+    const novoLink = document.getElementById("linkInstagram").value.trim();
+
+    if (!novoNome || !novoLink) {
+        alert("Preencha o nome e o link!");
+        return;
+    }
+
+    nomeInstagram = novoNome;
+    linkInstagram = novoLink;
+
+    localStorage.setItem(CHAVE_NOME_INSTA, nomeInstagram);
+    localStorage.setItem(CHAVE_LINK_INSTA, linkInstagram);
+
+    atualizarInstagram();
+
+    alert("Nome e link do topo atualizados!");
+}
+
+function mostrarProdutos(filtro = "") {
+    const lista = document.getElementById("listaProdutos");
+    lista.innerHTML = "";
+
+    produtos.forEach((produto) => {
+        if (!produto.nome.toLowerCase().includes(filtro.toLowerCase())) {
+            return;
+        }
+
+        const card = document.createElement("article");
+        card.className = "produto";
+
+        const imagemLink = document.createElement("a");
+        imagemLink.className = "imagem-link";
+        imagemLink.href = prepararLink(produto.link);
+        imagemLink.target = "_blank";
+        imagemLink.rel = "noopener noreferrer";
+
+        const imagem = document.createElement("img");
+        imagem.src = produto.imagem;
+        imagem.alt = produto.nome;
+
+        imagemLink.appendChild(imagem);
+
+        const info = document.createElement("div");
+        info.className = "produto-info";
+
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = "OFERTA";
+
+        const nome = document.createElement("h3");
+        nome.textContent = produto.nome;
+
+        const botao = document.createElement("a");
+        botao.className = "botao";
+        botao.textContent = "CONFERIR";
+        botao.href = prepararLink(produto.link);
+        botao.target = "_blank";
+        botao.rel = "noopener noreferrer";
+
+        info.append(tag, nome, botao);
+        card.append(imagemLink, info);
+        lista.appendChild(card);
+    });
+}
+
+function atualizarListaAdmin() {
+    const lista = document.getElementById("listaAdmin");
+    lista.innerHTML = "";
+
+    produtos.forEach((produto, indice) => {
+        const item = document.createElement("div");
+        item.className = "item-admin";
+
+        const nome = document.createElement("span");
+        nome.textContent = produto.nome;
+
+        const excluir = document.createElement("button");
+        excluir.className = "botao-admin";
+        excluir.textContent = "EXCLUIR";
+        excluir.onclick = () => excluirProduto(indice);
+
+        item.append(nome, excluir);
+        lista.appendChild(item);
+    });
+
+    if (produtos.length === 0) {
+        lista.textContent = "Nenhum produto cadastrado.";
+    }
+}
+
+function adicionarProduto() {
+    const arquivo = document.getElementById("imagemProduto").files[0];
+    const nome = document.getElementById("nomeProduto").value.trim();
+    const link = document.getElementById("linkProduto").value.trim();
+
+    if (!arquivo || !nome || !link) {
+        alert("Preencha todos os campos e escolha uma imagem!");
+        return;
+    }
+
+    if (!arquivo.type.startsWith("image/")) {
+        alert("Escolha um arquivo de imagem válido.");
+        return;
+    }
+
+    const leitor = new FileReader();
+
+    leitor.onload = function() {
+        produtos.push({
+            imagem: leitor.result,
+            nome: nome,
+            link: link
+        });
+
+        salvarProdutos();
+        mostrarProdutos(document.getElementById("busca").value);
+        atualizarListaAdmin();
+
+        document.getElementById("imagemProduto").value = "";
+        document.getElementById("nomeProduto").value = "";
+        document.getElementById("linkProduto").value = "";
+
+        alert("Produto adicionado com sucesso!");
+    };
+
+    leitor.onerror = function() {
+        alert("Não foi possível carregar a imagem.");
+    };
+
+    leitor.readAsDataURL(arquivo);
+}
+
+function excluirProduto(indice) {
+    if (confirm("Deseja excluir este produto?")) {
+        produtos.splice(indice, 1);
+        salvarProdutos();
+        mostrarProdutos(document.getElementById("busca").value);
+        atualizarListaAdmin();
+    }
+}
+
+function abrirAdmin() {
+    const senha = prompt("Digite a senha do dono:");
+
+    if (senha === "000111") {
+        document.getElementById("admin").style.display = "block";
+        atualizarInstagram();
+        atualizarListaAdmin();
+
+        document.getElementById("admin").scrollIntoView({
+            behavior: "smooth"
+        });
+    } else if (senha !== null) {
+        alert("Senha incorreta!");
+    }
+}
+
+function fecharAdmin() {
+    document.getElementById("admin").style.display = "none";
+}
+
+let cliquesTitulo = 0;
+let temporizadorTitulo;
+
+document.getElementById("tituloPrincipal").addEventListener("click", contarClique);
+document.getElementById("logo").addEventListener("click", contarClique);
+
+function contarClique() {
+    cliquesTitulo++;
+
+    clearTimeout(temporizadorTitulo);
+
+    temporizadorTitulo = setTimeout(() => {
+        cliquesTitulo = 0;
+    }, 1800);
+
+    if (cliquesTitulo >= 5) {
+        cliquesTitulo = 0;
+        abrirAdmin();
+    }
+}
+
+document.getElementById("busca").addEventListener("input", function() {
+    mostrarProdutos(this.value);
+});
+
+atualizarInstagram();
+mostrarProdutos();
+</script>
+
+</body>
+  </html>
+      
