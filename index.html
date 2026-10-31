@@ -1,69 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melhores Ofertas</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: linear-gradient(140deg, #ff5a00, #ff8500, #e94b00);
+    min-height: 100vh;
+}
+
+header {
+    padding: 18px;
+    background: #e94b00;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    box-shadow: 0 3px 12px #8c280066;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.instagram {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background: #ff8a00;
+    padding: 10px 14px;
+    border-radius: 20px;
+    overflow-wrap: anywhere;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 15px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.subtitulo {
+    text-align: center;
+    line-height: 1.6;
+    font-size: 15px;
+    margin: 15px auto 25px;
+    max-width: 750px;
+}
+
+#busca {
+    width: 100%;
+    padding: 14px;
+    border: 0;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    font-size: 16px;
+    outline: none;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.produto {
+    background: #ff7100;
+    border: 2px solid #ffb04d;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px #8c280055;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto a.imagem-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 190px;
+    background: #f45b00;
+}
+
+.produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+    padding: 8px;
+    margin: auto;
+}
+
+.produto-info {
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tag {
+    display: inline-block;
+    background: #a83200;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-bottom: 8px;
+}
+
+.produto h3 {
+    margin: 0 0 13px;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.botao {
+    display: block;
+    text-align: center;
+    margin-top: auto;
+    background: #a83200;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.botao:hover {
+    background: #812700;
+}
+
+#admin {
+    display: none;
+    background: #e94b00;
+    border: 2px solid #ffb04d;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+#admin h2 {
+    margin-top: 0;
+}
+
+.campo {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0 13px;
+    border: 0;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+.botao-admin {
+    background: #a83200;
+    color: white;
+    border: 0;
+    padding: 12px 17px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px 3px 5px 0;
+}
+
+.botao-admin:hover {
+    background: #812700;
+}
+
+.item-admin {
+    background: #ff8500;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.item-admin span {
+    overflow-wrap: anywhere;
+}
+
+.separador {
+    border: 0;
+    border-top: 2px solid #ffb04d;
+    margin: 25px 0;
+}
+
+@media(max-width: 500px) {
+    header {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .produto a.imagem-link {
+        height: 145px;
+    }
+
+    .produto h3 {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo" id="logo">MELHORES OFERTAS</div>
+
+    <a class="instagram" id="instagramTopo"
+       href="https://www.instagram.com/melhores_achados.da.internet/"
+       target="_blank" rel="noopener noreferrer">
+       insta: melhores_achados.da.internet
+    </a>
+</header>
+
+<main>
+
+    <h1 id="tituloPrincipal">Economize mais comprando melhor. Descubra nossas ofertas!</h1>
+
+    <p class="subtitulo">
+        🛍️ Todos os produtos são vendidos pela Shopee! Ao clicar na oferta desejada,
+        você será direcionado diretamente para a plataforma Shopee para conferir
+        detalhes e realizar sua compra com segurança. ❤️
+    </p>
+
+    <input type="search" id="busca"
+           placeholder="Pesquisar produtos...">
+
+    <div class="produtos" id="listaProdutos"></div>
+
+    <section id="admin">
+
+        <h2>Área do dono</h2>
+
+        <h3>Editar Instagram do topo</h3>
+
+        <label>Nome que aparecerá no topo:</label>
+        <input class="campo" id="nomeInstagram"
+               placeholder="Ex: insta: meu perfil">
+
+        <label>Link para onde a pessoa será direcionada:</label>
+        <input class="campo" id="linkInstagram"
+               placeholder="Cole qualquer link aqui">
+
+        <button class="botao-admin" onclick="salvarInstagram()">
+            SALVAR ALTERAÇÕES DO TOPO
+        </button>
+
+        <hr class="separador">
+
+        <h3>Adicionar um produto</h3>
+
+        <label>Imagem do produto:</label>
+        <input class="campo" type="file" id="imagemProduto"
+               accept="image/*">
+
+        <label>Nome do produto:</label>
+        <input class="campo" id="nomeProduto"
+               placeholder="Digite o nome do produto">
+
+        <label>Link do produto:</label>
+        <input class="campo" id="linkProduto"
+               placeholder="Cole o link da Shopee">
+
+        <button class="botao-admin" onclick="adicionarProduto()">
+            ADICIONAR PRODUTO
+        </button>
+
+        <hr class="separador">
+
+        <h3>TODOS OS PRODUTOS</h3>
+        <div id="listaAdmin"></div>
+
+        <button class="botao-admin" onclick="fecharAdmin()">
+            FECHAR ÁREA DO DONO
+        </button>
+
+    </section>
+
+</main>
+
 <script type="module">
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 const SUPABASE_URL = "https://zzlenpjfkynbjnjlnhss.supabase.co";
-const SUPABASE_KEY = "sb_publishable_82s4rCQbp7YbrHR5G7ghKg_IFXQHlrM";
+const SUPABASE_ANON_KEY = "sb_publishable_82s4rCQbp7YbrHR5G7ghKg_IFXQHlrM";
+const ADMIN_FUNCTION_URL = SUPABASE_URL + "/functions/v1/super-service";
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-const CHAVE_SENHA = "000111";
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let produtos = [];
 let nomeInstagram = "insta: melhores_achados.da.internet";
 let linkInstagram = "https://www.instagram.com/melhores_achados.da.internet/";
+let senhaAdmin = null;
+let canalProdutos = null;
 
 function prepararLink(link) {
     link = (link || "").trim();
-
     if (!link) return "#";
-
-    if (/^(https?:\/\/|mailto:|tel:|#)/i.test(link)) {
-        return link;
-    }
-
+    if (/^(https?:\/\/|mailto:|tel:|#)/i.test(link)) return link;
     return "https://" + link;
 }
 
-function mostrarErro(erro) {
-    console.error(erro);
-    alert(erro.message || "Ocorreu um erro. Tente novamente.");
-}
+async function chamarAdmin(acao, dados = {}) {
+    const resposta = await fetch(ADMIN_FUNCTION_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_ANON_KEY
+        },
+        body: JSON.stringify({
+            acao,
+            senha: senhaAdmin,
+            ...dados
+        })
+    });
 
-async function carregarProdutos() {
-    const { data, error } = await supabase
-        .from("produtos")
-        .select("*")
-        .order("created_at", { ascending: false });
+    const resultado = await resposta.json().catch(() => ({}));
 
-    if (error) {
-        mostrarErro(error);
-        return;
+    if (!resposta.ok || resultado.erro) {
+        throw new Error(resultado.erro || "Não foi possível concluir a operação.");
     }
 
-    produtos = data || [];
-
-    mostrarProdutos(document.getElementById("busca").value);
-    atualizarListaAdmin();
-}
-
-async function carregarInstagram() {
-    const { data, error } = await supabase
-        .from("configuracoes")
-        .select("*")
-        .eq("id", 1)
-        .maybeSingle();
-
-    if (error) {
-        mostrarErro(error);
-        return;
-    }
-
-    if (data) {
-        nomeInstagram = data.nome_instagram;
-        linkInstagram = data.link_instagram;
-    }
-
-    atualizarInstagram();
+    return resultado;
 }
 
 function atualizarInstagram() {
@@ -76,26 +374,24 @@ function atualizarInstagram() {
     document.getElementById("linkInstagram").value = linkInstagram;
 }
 
-async function chamarFuncao(dados) {
-    const { data, error } = await supabase.functions.invoke(
-        "super-service",
-        {
-            body: {
-                ...dados,
-                senha: CHAVE_SENHA
-            }
-        }
-    );
+async function carregarInstagram() {
+    const { data, error } = await supabase
+        .from("configuracoes")
+        .select("nome_instagram, link_instagram")
+        .eq("id", 1)
+        .maybeSingle();
 
     if (error) {
-        throw new Error(data?.erro || error.message);
+        console.error("Erro ao carregar configurações:", error.message);
+        return;
     }
 
-    if (data?.erro) {
-        throw new Error(data.erro);
+    if (data) {
+        nomeInstagram = data.nome_instagram || nomeInstagram;
+        linkInstagram = data.link_instagram || linkInstagram;
     }
 
-    return data;
+    atualizarInstagram();
 }
 
 async function salvarInstagram() {
@@ -108,8 +404,7 @@ async function salvarInstagram() {
     }
 
     try {
-        await chamarFuncao({
-            acao: "salvar_instagram",
+        await chamarAdmin("salvar_instagram", {
             nome_instagram: novoNome,
             link_instagram: novoLink
         });
@@ -121,7 +416,7 @@ async function salvarInstagram() {
 
         alert("Nome e link do topo atualizados!");
     } catch (erro) {
-        mostrarErro(erro);
+        alert("Não foi possível salvar: " + erro.message);
     }
 }
 
@@ -130,7 +425,7 @@ function mostrarProdutos(filtro = "") {
     lista.innerHTML = "";
 
     produtos.forEach((produto) => {
-        if (!produto.nome.toLowerCase().includes(filtro.toLowerCase())) {
+        if (!(produto.nome || "").toLowerCase().includes(filtro.toLowerCase())) {
             return;
         }
 
@@ -197,6 +492,44 @@ function atualizarListaAdmin() {
     }
 }
 
+async function carregarProdutos() {
+    const { data, error } = await supabase
+        .from("produtos")
+        .select("id, nome, imagem, link, created_at")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Erro ao carregar produtos:", error.message);
+        document.getElementById("listaProdutos").textContent =
+            "Não foi possível carregar os produtos. Verifique a configuração do banco.";
+        return;
+    }
+
+    produtos = data || [];
+
+    mostrarProdutos(document.getElementById("busca").value);
+
+    if (document.getElementById("admin").style.display === "block") {
+        atualizarListaAdmin();
+    }
+}
+
+function arquivoParaBase64(arquivo) {
+    return new Promise((resolve, reject) => {
+        const leitor = new FileReader();
+
+        leitor.onload = () => {
+            resolve(String(leitor.result).split(",")[1]);
+        };
+
+        leitor.onerror = () => {
+            reject(new Error("Não foi possível carregar a imagem."));
+        };
+
+        leitor.readAsDataURL(arquivo);
+    });
+}
+
 async function adicionarProduto() {
     const arquivo = document.getElementById("imagemProduto").files[0];
     const nome = document.getElementById("nomeProduto").value.trim();
@@ -213,28 +546,12 @@ async function adicionarProduto() {
     }
 
     try {
-        const base64 = await new Promise((resolve, reject) => {
-            const leitor = new FileReader();
-
-            leitor.onload = () => {
-                const resultado = leitor.result;
-                resolve(resultado.split(",")[1]);
-            };
-
-            leitor.onerror = () => reject(
-                new Error("Não foi possível carregar a imagem.")
-            );
-
-            leitor.readAsDataURL(arquivo);
-        });
-
-        await chamarFuncao({
-            acao: "adicionar_produto",
-            nome: nome,
-            link: link,
-            imagem_base64: base64,
+        await chamarAdmin("adicionar_produto", {
+            nome,
+            link,
+            imagem_nome: arquivo.name,
             imagem_tipo: arquivo.type,
-            imagem_nome: arquivo.name
+            imagem_base64: await arquivoParaBase64(arquivo)
         });
 
         document.getElementById("imagemProduto").value = "";
@@ -246,7 +563,7 @@ async function adicionarProduto() {
         alert("Produto adicionado com sucesso!");
 
     } catch (erro) {
-        mostrarErro(erro);
+        alert("Não foi possível adicionar: " + erro.message);
     }
 }
 
@@ -256,8 +573,7 @@ async function excluirProduto(produto) {
     }
 
     try {
-        await chamarFuncao({
-            acao: "excluir_produto",
+        await chamarAdmin("excluir_produto", {
             id: produto.id,
             imagem: produto.imagem
         });
@@ -265,7 +581,7 @@ async function excluirProduto(produto) {
         await carregarProdutos();
 
     } catch (erro) {
-        mostrarErro(erro);
+        alert("Não foi possível excluir: " + erro.message);
     }
 }
 
@@ -274,21 +590,10 @@ async function abrirAdmin() {
 
     if (senha === null) return;
 
-    try {
-        const { data, error } = await supabase.functions.invoke(
-            "super-service",
-            {
-                body: {
-                    acao: "verificar_senha",
-                    senha: senha
-                }
-            }
-        );
+    senhaAdmin = senha;
 
-        if (error || !data?.ok) {
-            alert(data?.erro || "Senha incorreta!");
-            return;
-        }
+    try {
+        await chamarAdmin("verificar_senha");
 
         document.getElementById("admin").style.display = "block";
 
@@ -300,26 +605,21 @@ async function abrirAdmin() {
         });
 
     } catch (erro) {
-        mostrarErro(erro);
+        senhaAdmin = null;
+        alert("Senha incorreta!");
     }
 }
 
 function fecharAdmin() {
     document.getElementById("admin").style.display = "none";
+    senhaAdmin = null;
 }
 
 let cliquesTitulo = 0;
 let temporizadorTitulo;
 
-document.getElementById("tituloPrincipal").addEventListener(
-    "click",
-    contarClique
-);
-
-document.getElementById("logo").addEventListener(
-    "click",
-    contarClique
-);
+document.getElementById("tituloPrincipal").addEventListener("click", contarClique);
+document.getElementById("logo").addEventListener("click", contarClique);
 
 function contarClique() {
     cliquesTitulo++;
@@ -340,27 +640,30 @@ document.getElementById("busca").addEventListener("input", function() {
     mostrarProdutos(this.value);
 });
 
-window.salvarInstagram = salvarInstagram;
-window.adicionarProduto = adicionarProduto;
-window.fecharAdmin = fecharAdmin;
+async function iniciar() {
+    atualizarInstagram();
 
-async function iniciarSite() {
-    await carregarInstagram();
-    await carregarProdutos();
+    await Promise.all([
+        carregarProdutos(),
+        carregarInstagram()
+    ]);
 
-    supabase
-        .channel("mudancas-produtos")
-        .on(
-            "postgres_changes",
-            {
-                event: "*",
-                schema: "public",
-                table: "produtos"
-            },
-            () => carregarProdutos()
-        )
+    canalProdutos = supabase
+        .channel("produtos-realtime")
+        .on("postgres_changes", {
+            event: "*",
+            schema: "public",
+            table: "produtos"
+        }, () => carregarProdutos())
         .subscribe();
 }
 
-iniciarSite();
+iniciar();
+
+window.salvarInstagram = salvarInstagram;
+window.adicionarProduto = adicionarProduto;
+window.fecharAdmin = fecharAdmin;
 </script>
+
+</body>
+</html>
